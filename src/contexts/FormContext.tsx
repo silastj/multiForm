@@ -31,19 +31,18 @@ const initialData: State = {
   github:''
 }
 
-
-
 //Context
 const FormContext = createContext<ContextType | undefined>(undefined)
 
 //Reducer
-enum FormActions {
+export enum FormActions {
   setCurrentStep,
   setName,
   setLevel,
   setEmail,
   setGithub
 }
+
 const formReducer = (state: State, action: Action) => {
   switch(action.type) {
     case FormActions.setCurrentStep:
@@ -62,7 +61,7 @@ const formReducer = (state: State, action: Action) => {
 }
 
 //Provider
-const FormProvider = ({children}: FormProviderProps) => {
+export const FormProvider = ({children}: FormProviderProps) => {
 
   const[state, dispatch] = useReducer(formReducer, initialData)
   const value = {state, dispatch}
@@ -76,7 +75,7 @@ const FormProvider = ({children}: FormProviderProps) => {
 
 
 // Context Hook
-const useForm = () => {
+export const useForm = () => {
   const context = useContext(FormContext)
   if(context === undefined){
     throw new Error('Useform precisa ser usado dentro do FormProvider');

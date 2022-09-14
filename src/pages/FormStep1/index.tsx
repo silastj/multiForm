@@ -1,10 +1,13 @@
 import * as C from './styles'
+import Theme from '../../components/Theme/index'
 
 const FormStep1 = () => {
   return (
-    <C.Container>
-      <h2>Step 01</h2>
-    </C.Container>
+    <Theme>
+      <C.Container>
+        <h2>Step 01</h2>
+      </C.Container>
+    </Theme>
   )
 }
 
