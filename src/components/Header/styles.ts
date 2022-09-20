@@ -7,9 +7,9 @@ export const Container = styled.div`
   border-bottom: 1px solid;
 
   h1{
-    color:#ddd;
+    color:#304141;
   }
   p{
-    color:#ccc;
+    color:#304141;
   }
 `;

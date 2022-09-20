@@ -1,5 +1,22 @@
-// Criar Context - Reducer - Provider - Hook
+// Iremos Criar
+// Context - 
+// Reducer - 
+// Provider -
+// Hook -
+
 import { createContext , useContext, useReducer , ReactNode} from 'react'
+
+// DATA INITIAL
+const initialData: State = {
+  currentStep:0,
+  name:'',
+  level:0,
+  email:'',
+  github:''
+}
+
+
+// START TYPES 
 
 type State = {
   currentStep: number;
@@ -23,18 +40,14 @@ type FormProviderProps = {
   children: ReactNode;
 }
 
-const initialData: State = {
-  currentStep:0,
-  name:'',
-  level:0,
-  email:'',
-  github:''
-}
+//END TYPES
 
-//Context
+// START Context
 const FormContext = createContext<ContextType | undefined>(undefined)
 
-//Reducer
+// END Context
+
+// START Reducer
 export enum FormActions {
   setCurrentStep,
   setName,
@@ -60,7 +73,9 @@ const formReducer = (state: State, action: Action) => {
   }
 }
 
-//Provider
+// END Reducer 
+
+// START Provider
 export const FormProvider = ({children}: FormProviderProps) => {
 
   const[state, dispatch] = useReducer(formReducer, initialData)
@@ -73,8 +88,9 @@ export const FormProvider = ({children}: FormProviderProps) => {
   )
 }
 
+// END Provider
 
-// Context Hook
+// START Context Hook
 export const useForm = () => {
   const context = useContext(FormContext)
   if(context === undefined){
@@ -82,3 +98,5 @@ export const useForm = () => {
   }
   return context
 }
+
+// END Hook
