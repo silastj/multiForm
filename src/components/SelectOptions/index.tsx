@@ -4,11 +4,13 @@ type Props = {
   title: string;
   description: string
   icon: string
+  selected: boolean
+  onClick: () => void
 }
 
-const SelectOptions = ({title, description, icon}: Props) => {
+const SelectOptions = ({title, description, icon, selected, onClick}: Props) => {
   return(
-    <C.Container>
+    <C.Container selected={selected} onClick={onClick}>
      <C.Icon>{icon}</C.Icon>
      <C.Info>
         <C.Title>{title}</C.Title>

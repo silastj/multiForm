@@ -59,4 +59,22 @@ button{
     box-shadow:0 0px 1px 2px #000;
   }
 }
+
+a{
+  border:none;
+  padding:10px 20px;
+  margin-left:5px;
+  text-transform:uppercase;
+  cursor: pointer;
+  border-radius:4px;
+  transition: .3s ease-in-out;
+  border:1px solid .9;
+  margin-top: 20px;
+  
+  &:hover{
+    background-color:transparent;
+    transition: .3s ease-in-out;
+    box-shadow:0 0px 1px 2px #000;
+  }
+}
 `;

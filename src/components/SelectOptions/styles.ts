@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{ selected: boolean;}>`
   padding:10px 5px;
   display:flex;
   align-items:center;
   gap:10px;
-  border:0.5px solid #000000;
+  border:2px solid ${props => props.selected ? '#25cd89' : '#16195c' };
   border-radius:4px;
   margin:20px 5px;
   cursor:pointer;

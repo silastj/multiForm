@@ -11,7 +11,7 @@ const FormStep1 = () => {
       type: FormActions.setCurrentStep,
       payload: 1
     })
-  })
+  },[])
 
   const history = useHistory()
   const {state, dispatch} = useForm()
@@ -33,7 +33,7 @@ const FormStep1 = () => {
   return (
     <Theme>
       <C.Container>
-        <p>Passo 1/3 - {state.currentStep}</p>
+        <p>Passo 1/3 </p>
         <h1>Vamos começar com seu nome.</h1>
         <p>Preencha o campo abaixo com seu nome completo.</p>
 
@@ -46,7 +46,7 @@ const FormStep1 = () => {
             autoFocus
             value={state.name}
             onChange={handleNameChange}
-            placeholder="Cliente"
+            placeholder="Digite seu nome"
            />
         </label>
 
