@@ -1,5 +1,5 @@
 import * as C from './styles'
-import { ChangeEvent, useEffect } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import Theme from '../../components/Theme/index'
 import { useHistory, Link } from 'react-router-dom'
 import {useForm, FormActions} from '../../contexts/FormContext'
@@ -7,6 +7,7 @@ import {useForm, FormActions} from '../../contexts/FormContext'
 const FormStep3 = () => {
   const history = useHistory()
   const {state, dispatch} = useForm()
+  const [ send, setSend] = useState(false)
 
   useEffect(() => {
     state.name === '' ? history.push('/') :
@@ -31,11 +32,17 @@ const FormStep3 = () => {
   }
 
 
-  const handleNextFinish = () => {
+  const handleNextFinish = (e:any) => {
     state.email !== '' && state.github !== '' ? 
-    console.log(state)
+    Send(e)
     : 
     alert('Prencha os seus dados.')
+  }
+
+  const Send = (e: ChangeEvent<HTMLInputElement>) => {
+    state.email = ''
+    state.github = ''
+    setSend(true)
   }
 
   return (
@@ -54,7 +61,8 @@ const FormStep3 = () => {
             value={state.email}
             onChange={handleNameEmail}
             placeholder="Digite seu email"
-           />
+            autoFocus
+            />
         </label>
 
         <label>
@@ -68,6 +76,9 @@ const FormStep3 = () => {
         </label>
         <Link to="/step2">Voltar</Link>
         <button onClick={handleNextFinish}>Finalizar</button>
+        {send && 
+          <p>Enviado com Sucesso!</p>
+        }
       </C.Container>
     </Theme>
   )
